@@ -1,11 +1,12 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class NavigationBar extends React.Component {
   render() {
     return (
       <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="#home">
+        <Link to={""} className="navbar-brand">
           {" "}
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Book_icon_1.png"
@@ -13,11 +14,14 @@ class NavigationBar extends React.Component {
             height="25"
             alt="brand"
           />
-          Books
-        </Navbar.Brand>
+        </Link>
         <Nav className="mr-auto">
-          <Nav.Link href="#">Add Books</Nav.Link>
-          <Nav.Link href="#">Book Listing</Nav.Link>
+          <Link to={"add"} className="nav-link">
+            Add Books
+          </Link>
+          <Link to={"list"} className="nav-link">
+            Book Listing
+          </Link>
         </Nav>
       </Navbar>
     );
