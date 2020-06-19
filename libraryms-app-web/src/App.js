@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavigationBar from "./components/NavigationBar";
 import Welcome from "./components/Welcome";
 import { Container, Row, Jumbotron, Col } from "react-bootstrap";
+import Footer from "./components/Footer";
 
 function App() {
   const marginTop = { marginTop: "20px" };
