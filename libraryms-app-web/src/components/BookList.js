@@ -2,6 +2,19 @@ import React, { Component } from "react";
 import { Card, Table } from "react-bootstrap";
 
 export default class BookList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:8080/books")
+      .then((response) => response.json())
+      .then((data) => this.setState({ books: data }));
+  }
+
   render() {
     return (
       <Card className={"border border-dark bg-dark text-white"}>
@@ -17,9 +30,17 @@ export default class BookList extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr align="center">
-                <td colSpan="6">No books Available</td>
-              </tr>
+              {this.state.books.length === 0 ? (
+                <tr align="center">
+                  <td colSpan="6">{this.state.books.length}</td>
+                </tr>
+              ) : (
+                this.state.books.map((book) => (
+                  <tr key={book.id}>
+                    <td>{book.title} </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </Table>
         </Card.Body>
