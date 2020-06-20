@@ -68,18 +68,19 @@ export default class Book extends Component {
     const { title, author, isbn, rating } = this.state;
     return (
       <div>
-        <div style={{ display: this.state.show ? "block" : null }}>
+        <div style={{ display: this.state.show ? "block" : "none" }}>
           <MyToast
             children={{
               show: this.state.show,
               message: "Book was saved successfully.",
+              type: "success",
             }}
           />
         </div>
         <Card className={"border border-dark bg-dark text-white"}>
           <Card.Header>
             <FontAwesomeIcon icon={faPlusSquare} />
-            Add Book
+            Add New Book
           </Card.Header>
           <Form
             onReset={this.resetBook}
