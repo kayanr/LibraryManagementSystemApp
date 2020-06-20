@@ -27,6 +27,7 @@ export default class BookList extends Component {
                 <th>Author</th>
                 <th>ISBN Number</th>
                 <th>Rating</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -41,6 +42,7 @@ export default class BookList extends Component {
                     <td>{book.author} </td>
                     <td>{book.isbn} </td>
                     <td>{book.rating} </td>
+                    <td>Update delete </td>
                   </tr>
                 ))
               )}
