@@ -20,7 +20,33 @@ export default class Book extends Component {
     this.bookChange = this.bookChange.bind(this);
     this.submitBook = this.submitBook.bind(this);
   }
-  initialState = { title: "", author: "", isbn: "", rating: "" };
+  initialState = { id: "", title: "", author: "", isbn: "", rating: "" };
+
+  componentDidMount() {
+    const bookId = +this.props.match.params.id;
+    if (bookId) {
+      this.findBookById(bookId);
+    }
+  }
+
+  findBookById = (bookId) => {
+    axios
+      .get("http://localhost:8080/book/" + bookId)
+      .then((response) => {
+        if (response.data != null) {
+          this.setState({
+            id: response.data.id,
+            title: response.data.title,
+            author: response.data.author,
+            isbn: response.data.isbn,
+            rating: response.data.rating,
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error - " + error);
+      });
+  };
 
   resetBook = () => {
     this.setState(() => this.initialState);
@@ -64,6 +90,10 @@ export default class Book extends Component {
     });
   };
 
+  bookList = () => {
+    return this.props.history.push("/list");
+  };
+
   render() {
     const { title, author, isbn, rating } = this.state;
     return (
@@ -77,8 +107,8 @@ export default class Book extends Component {
         </div>
         <Card className={"border border-dark bg-dark text-white"}>
           <Card.Header>
-            <FontAwesomeIcon icon={faPlusSquare} />
-            Add New Book
+            <FontAwesomeIcon icon={this.state.id ? faEdit : faPlusSquare} />
+            {this.state.id ? "Update Book" : "Add New Book"}
           </Card.Header>
           <Form
             onReset={this.resetBook}
@@ -145,12 +175,22 @@ export default class Book extends Component {
             </Card.Body>
             <Card.Footer style={{ textAlign: "right" }}>
               <Button size="sm" variant="success" type="submit">
-                <FontAwesomeIcon icon={faSave} />
-                Submit {""}
+                <FontAwesomeIcon icon={faSave} />{" "}
+                {this.state.id ? "Update" : "Save"}
+                {""}
               </Button>{" "}
               <Button size="sm" variant="info" type="reset">
                 <FontAwesomeIcon icon={faUndo} />
                 Reset
+              </Button>{" "}
+              <Button
+                size="sm"
+                variant="info"
+                type="button"
+                onClick={this.bookList.bind()}
+              >
+                <FontAwesomeIcon icon={faList} />
+                Book List
               </Button>
             </Card.Footer>
           </Form>
