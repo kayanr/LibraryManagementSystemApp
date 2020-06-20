@@ -7,7 +7,7 @@ export default class Book extends Component {
     super(props);
     this.state = { title: "", author: "", isbn: "", rating: "" };
 
-    this.bookChange = this.bookChange.bind(this);
+    // this.bookChange = this.bookChange.bind(this);
     this.submitBook = this.submitBook.bind(this);
   }
 
