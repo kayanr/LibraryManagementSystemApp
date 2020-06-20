@@ -70,11 +70,9 @@ export default class Book extends Component {
       <div>
         <div style={{ display: this.state.show ? "block" : "none" }}>
           <MyToast
-            children={{
-              show: this.state.show,
-              message: "Book was saved successfully.",
-              type: "success",
-            }}
+            show={this.state.show}
+            message={"Book was saved successfully."}
+            type={"success"}
           />
         </div>
         <Card className={"border border-dark bg-dark text-white"}>

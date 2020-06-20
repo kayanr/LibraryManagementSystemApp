@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import { Card, Table, ButtonGroup, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCoffee,
+  faEdit,
+  faTrash,
+  faList,
+} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import MyToast from "./MyToast";
+import { Link } from "react-router-dom";
 
 export default class BookList extends Component {
   constructor(props) {
@@ -38,15 +44,17 @@ export default class BookList extends Component {
       <div>
         <div style={{ display: this.state.show ? "block" : "none" }}>
           <MyToast
-            children={{
-              show: this.state.show,
-              message: "Book was deleted successfully.",
-              type: "danger",
-            }}
+            show={this.state.show}
+            message={"Book was deleted successfully."}
+            type={"danger"}
           />
         </div>
         <Card className={"border border-dark bg-dark text-white"}>
-          <Card.Header>Book List</Card.Header>
+          <Card.Header>
+            {" "}
+            <FontAwesomeIcon icon={faList} /> {"  "}
+            Book List
+          </Card.Header>
           <Card.Body>
             <Table striped bordered hover variant="dark">
               <thead>
@@ -72,9 +80,13 @@ export default class BookList extends Component {
                       <td>{book.rating} </td>
                       <td>
                         <ButtonGroup>
-                          <Button size="sm" variant="outline-primary">
+                          <Link
+                            to={"edit/" + book.id}
+                            className="btn btn-sm btn-outline-primary"
+                          >
                             <FontAwesomeIcon icon={faEdit} />
-                          </Button>
+                          </Link>{" "}
+                          {"  "}
                           {"  "}
                           <Button
                             size="sm"

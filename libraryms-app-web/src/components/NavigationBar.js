@@ -17,7 +17,7 @@ class NavigationBar extends Component {
         </Link>
         <Nav className="mr-auto">
           <Link to={"add"} className="nav-link">
-            Add Books
+            Add Book
           </Link>
           <Link to={"list"} className="nav-link">
             Book Listing
