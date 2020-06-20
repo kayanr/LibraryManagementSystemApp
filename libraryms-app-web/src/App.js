@@ -9,11 +9,14 @@ import { Container, Row, Jumbotron, Col } from "react-bootstrap";
 import Footer from "./components/Footer";
 import Book from "./components/Book";
 import BookList from "./components/BookList";
+import Header from "./components/Header";
+import axios from "axios";
 
 function App() {
   const marginTop = { marginTop: "20px" };
   return (
     <Router>
+      <Header />
       <NavigationBar />
       <Container>
         <Row>
