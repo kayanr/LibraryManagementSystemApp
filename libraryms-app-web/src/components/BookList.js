@@ -38,6 +38,9 @@ export default class BookList extends Component {
                 this.state.books.map((book) => (
                   <tr key={book.id}>
                     <td>{book.title} </td>
+                    <td>{book.author} </td>
+                    <td>{book.isbn} </td>
+                    <td>{book.rating} </td>
                   </tr>
                 ))
               )}
