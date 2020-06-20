@@ -1,10 +1,29 @@
-import React from "react";
-import { Container, Row, Jumbotron, Col } from "react-bootstrap";
+import React, { Component } from "react";
+import { Card, Table } from "react-bootstrap";
 
-class BookList extends React.Component {
+export default class BookList extends Component {
   render() {
-    return <div className="text-white">Book List</div>;
+    return (
+      <Card className={"border border-dark bg-dark text-white"}>
+        <Card.Header>Book List</Card.Header>
+        <Card.Body>
+          <Table striped bordered hover variant="dark">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN Number</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr align="center">
+                <td colSpan="6">No books Available</td>
+              </tr>
+            </tbody>
+          </Table>
+        </Card.Body>
+      </Card>
+    );
   }
 }
-
-export default BookList;

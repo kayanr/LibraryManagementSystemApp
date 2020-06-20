@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { Container, Row, Jumbotron, Col, Navbar } from "react-bootstrap";
 
-class Footer extends React.Component {
+export default class Footer extends Component {
   render() {
     return (
       <Navbar fixed="bottom" bg="primary" variant="dark">
@@ -14,5 +14,3 @@ class Footer extends React.Component {
     );
   }
 }
-
-export default Footer;
