@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Table, ButtonGroup, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faCoffee, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default class BookList extends Component {
   constructor(props) {
@@ -51,7 +51,7 @@ export default class BookList extends Component {
                           <FontAwesomeIcon icon={faEdit} />
                         </Button>
                         <Button>
-                          Delete <FontAwesomeIcon icon={faEdit} />
+                          Delete <FontAwesomeIcon icon={faTrash} />
                         </Button>
                       </ButtonGroup>
                     </td>
