@@ -21,13 +21,21 @@ export default class Book extends Component {
   }
   initialState = { title: "", author: "", isbn: "", rating: "" };
 
+  resetBook = () => {
+    this.setState(() => this.initialState);
+  };
+
   submitBook = (event) => {
-    alert(
-      this.state.title,
-      this.state.author,
-      this.state.isbn,
-      this.state.rating
-    );
+    /*  alert(
+      "Title: " +
+        this.state.title +
+        ", author: " +
+        this.state.author +
+        ", isbn: " +
+        this.state.isbn +
+        ", rating: " +
+        this.state.rating
+    ); */
     event.preventDefault();
 
     const book = {
@@ -37,7 +45,7 @@ export default class Book extends Component {
       rating: this.state.rating,
     };
 
-    axios.post("http://localhost:8080/books", book).then((response) => {
+    axios.post("http://localhost:8080/book", book).then((response) => {
       if (response.data != null) {
         this.setState({ show: true, method: "post" });
         setTimeout(() => this.setState({ show: false }), 3000);
@@ -63,7 +71,11 @@ export default class Book extends Component {
           <FontAwesomeIcon icon={faPlusSquare} />
           Add Book
         </Card.Header>
-        <Form onSubmit={this.submitBook} id="bookFormId">
+        <Form
+          onReset={this.resetBook}
+          onSubmit={this.submitBook}
+          id="bookFormId"
+        >
           <Card.Body>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridTitle">
@@ -125,9 +137,9 @@ export default class Book extends Component {
           <Card.Footer style={{ textAlign: "right" }}>
             <Button size="sm" variant="success" type="submit">
               <FontAwesomeIcon icon={faSave} />
-              Submit
-            </Button>
-            <Button size="sm" variant="success" type="submit">
+              Submit {""}
+            </Button>{" "}
+            <Button size="sm" variant="info" type="reset">
               <FontAwesomeIcon icon={faUndo} />
               Reset
             </Button>
