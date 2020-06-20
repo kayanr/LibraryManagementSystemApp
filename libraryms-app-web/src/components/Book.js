@@ -68,8 +68,13 @@ export default class Book extends Component {
     const { title, author, isbn, rating } = this.state;
     return (
       <div>
-        <div style={{ display: this.state.show ? "block" : "none" }}>
-          <MyToast />
+        <div style={{ display: this.state.show ? "block" : null }}>
+          <MyToast
+            children={{
+              show: this.state.show,
+              message: "Book was saved successfully.",
+            }}
+          />
         </div>
         <Card className={"border border-dark bg-dark text-white"}>
           <Card.Header>
