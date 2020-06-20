@@ -1,18 +1,33 @@
 import React, { Component } from "react";
 import { Card, Form, Button, Col } from "react-bootstrap";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlusSquare,
+  faList,
+  faEdit,
+  faSave,
+  faUndo,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default class Book extends Component {
   constructor(props) {
     super(props);
     this.state = { title: "", author: "", isbn: "", rating: "" };
 
-    // this.bookChange = this.bookChange.bind(this);
+    this.state = this.initialState;
+    this.bookChange = this.bookChange.bind(this);
     this.submitBook = this.submitBook.bind(this);
   }
+  initialState = { title: "", author: "", isbn: "", rating: "" };
 
   submitBook = (event) => {
-    alert(this.state.title);
+    alert(
+      this.state.title,
+      this.state.author,
+      this.state.isbn,
+      this.state.rating
+    );
     event.preventDefault();
 
     const book = {
@@ -34,47 +49,73 @@ export default class Book extends Component {
     this.setState(this.initialState);
   };
 
+  bookChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
   render() {
+    const { title, author, isbn, rating } = this.state;
     return (
       <Card className={"border border-dark bg-dark text-white"}>
-        <Card.Header>Add Book</Card.Header>
+        <Card.Header>
+          <FontAwesomeIcon icon={faPlusSquare} />
+          Add Book
+        </Card.Header>
         <Form onSubmit={this.submitBook} id="bookFormId">
           <Card.Body>
             <Form.Row>
-              <Form.Group as={Col}>
+              <Form.Group as={Col} controlId="formGridTitle">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
+                  required
+                  autoComplete="off"
                   type="test"
                   name="title"
+                  value={title}
+                  onChange={this.bookChange}
                   className={"bg-dark text-white"}
                   placeholder="Enter Book Title"
                 />
               </Form.Group>
-              <Form.Group as={Col}>
+              <Form.Group as={Col} controlId="formGridAuthor">
                 <Form.Label>Author</Form.Label>
                 <Form.Control
+                  required
+                  autoComplete="off"
                   type="test"
                   name="author"
+                  value={author}
+                  onChange={this.bookChange}
                   className={"bg-dark text-white"}
                   placeholder="Enter Book Author"
                 />
               </Form.Group>
             </Form.Row>
             <Form.Row>
-              <Form.Group as={Col}>
+              <Form.Group as={Col} controlId="formGridIsbn">
                 <Form.Label>Isbn</Form.Label>
                 <Form.Control
+                  required
+                  autoComplete="off"
                   type="test"
                   name="isbn"
+                  value={isbn}
+                  onChange={this.bookChange}
                   className={"bg-dark text-white"}
                   placeholder="Enter Book ISBN"
                 />
               </Form.Group>
-              <Form.Group as={Col}>
+              <Form.Group as={Col} controlId="formGridRating">
                 <Form.Label>Rating</Form.Label>
                 <Form.Control
+                  required
+                  autoComplete="off"
                   type="test"
                   name="rating"
+                  value={rating}
+                  onChange={this.bookChange}
                   className={"bg-dark text-white"}
                   placeholder="Enter Book Rating"
                 />
@@ -83,7 +124,12 @@ export default class Book extends Component {
           </Card.Body>
           <Card.Footer style={{ textAlign: "right" }}>
             <Button size="sm" variant="success" type="submit">
+              <FontAwesomeIcon icon={faSave} />
               Submit
+            </Button>
+            <Button size="sm" variant="success" type="submit">
+              <FontAwesomeIcon icon={faUndo} />
+              Reset
             </Button>
           </Card.Footer>
         </Form>

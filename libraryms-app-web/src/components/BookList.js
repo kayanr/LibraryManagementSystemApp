@@ -46,11 +46,10 @@ export default class BookList extends Component {
                     <td>{book.rating} </td>
                     <td>
                       <ButtonGroup>
-                        <Button>
-                          Update
+                        <Button size="sm" variant="outline-primary">
                           <FontAwesomeIcon icon={faEdit} />
                         </Button>
-                        <Button>
+                        <Button size="sm" variant="outline-danger">
                           Delete <FontAwesomeIcon icon={faTrash} />
                         </Button>
                       </ButtonGroup>
