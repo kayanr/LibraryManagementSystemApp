@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Card, Table, ButtonGroup, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 export default class BookList extends Component {
   constructor(props) {
@@ -16,6 +17,14 @@ export default class BookList extends Component {
       .then((response) => response.json())
       .then((data) => this.setState({ books: data }));
   }
+
+  deleteBook = (bookId) => {
+    axios.delete("http://localhost:8080/book/" + bookId).then((response) => {
+      if (response.data != null) {
+        alert("Book was deleted successfully.");
+      }
+    });
+  };
 
   render() {
     return (
@@ -49,7 +58,11 @@ export default class BookList extends Component {
                         <Button size="sm" variant="outline-primary">
                           <FontAwesomeIcon icon={faEdit} />
                         </Button>
-                        <Button size="sm" variant="outline-danger">
+                        <Button
+                          size="sm"
+                          variant="outline-danger"
+                          onClick={this.deleteBook.bind(this, book.id)}
+                        >
                           Delete <FontAwesomeIcon icon={faTrash} />
                         </Button>
                       </ButtonGroup>
