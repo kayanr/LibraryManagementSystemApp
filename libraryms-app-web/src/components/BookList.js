@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Table } from "react-bootstrap";
+import { Card, Table, ButtonGroup, Button } from "react-bootstrap";
 
 export default class BookList extends Component {
   constructor(props) {
@@ -42,7 +42,12 @@ export default class BookList extends Component {
                     <td>{book.author} </td>
                     <td>{book.isbn} </td>
                     <td>{book.rating} </td>
-                    <td>Update delete </td>
+                    <td>
+                      <ButtonGroup>
+                        <Button>Update</Button>
+                        <Button>Delete</Button>
+                      </ButtonGroup>
+                    </td>
                   </tr>
                 ))
               )}
