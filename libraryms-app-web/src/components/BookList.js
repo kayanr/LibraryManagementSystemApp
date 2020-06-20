@@ -22,6 +22,9 @@ export default class BookList extends Component {
     axios.delete("http://localhost:8080/book/" + bookId).then((response) => {
       if (response.data != null) {
         alert("Book was deleted successfully.");
+        this.setState({
+          books: this.state.books.filter((book) => book.id !== bookId),
+        });
       }
     });
   };
