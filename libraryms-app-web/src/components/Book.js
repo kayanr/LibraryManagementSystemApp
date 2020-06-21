@@ -52,6 +52,7 @@ export default class Book extends Component {
     this.setState(() => this.initialState);
   };
 
+  //Submit book
   submitBook = (event) => {
     /*  alert(
       "Title: " +
@@ -94,6 +95,31 @@ export default class Book extends Component {
     return this.props.history.push("/list");
   };
 
+  //update book using PUT
+  updateBook = (event) => {
+    event.preventDefault();
+
+    const book = {
+      id: this.state.id,
+      title: this.state.title,
+      author: this.state.author,
+      isbn: this.state.isbn,
+      rating: this.state.rating,
+    };
+
+    axios.put("http://localhost:8080/book", book).then((response) => {
+      if (response.data != null) {
+        this.setState({ show: true, method: "put" });
+        setTimeout(() => this.setState({ show: false }), 3000);
+        setTimeout(() => this.bookList(), 3000);
+      } else {
+        this.setState({ show: false });
+      }
+    });
+
+    this.setState(this.initialState);
+  };
+
   render() {
     const { title, author, isbn, rating } = this.state;
     return (
@@ -101,7 +127,11 @@ export default class Book extends Component {
         <div style={{ display: this.state.show ? "block" : "none" }}>
           <MyToast
             show={this.state.show}
-            message={"Book was saved successfully."}
+            message={
+              this.state.method === "put"
+                ? "Book was updated successfully."
+                : "Book was saved successfully."
+            }
             type={"success"}
           />
         </div>
@@ -112,7 +142,7 @@ export default class Book extends Component {
           </Card.Header>
           <Form
             onReset={this.resetBook}
-            onSubmit={this.submitBook}
+            onSubmit={this.state.id ? this.updateBook : this.submitBook}
             id="bookFormId"
           >
             <Card.Body>
