@@ -1,0 +1,58 @@
+#################################
+# Java / Maven
+#################################
+
+target/
+*.class
+*.log
+*.jar
+*.war
+*.ear
+
+#################################
+# Spring Boot / Configuration
+#################################
+
+# Ignore environment-specific config
+libraryms-app-rest/src/main/resources/application.properties
+
+#################################
+# Node / React
+#################################
+
+node_modules/
+build/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+#################################
+# IDE Files
+#################################
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+#################################
+# OS Files
+#################################
+
+.DS_Store
+Thumbs.db
+
+#################################
+# Misc
+#################################
+
+.env
+.env.local
