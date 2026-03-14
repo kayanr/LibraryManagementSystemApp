@@ -6,17 +6,23 @@
 ![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
 
 A comprehensive **Library Management System** built with modern web technologies.
-This application demonstrates a full-stack architecture with a React frontend, a Spring Boot REST API backend, and a MySQL database.
+
+This project demonstrates a **full-stack architecture** with a React frontend, a Spring Boot REST API backend, and a MySQL database.
 
 ---
 
 # 🚀 Overview
 
-The **Library Management System** is a full-stack web application designed to streamline library operations.
+The **Library Management System** is a full-stack web application designed to manage core library operations.
 
-The system enables librarians and administrators to manage books through an intuitive web interface. The frontend communicates with a backend REST API that handles business logic and database interactions.
+The system enables librarians and administrators to manage **books and library members** through a web interface.  
+The frontend communicates with a backend **Spring Boot REST API** that handles business logic and database interactions.
 
-This project demonstrates how a modern web application integrates a client interface with a backend service and persistent data storage.
+This project demonstrates how modern web applications integrate:
+
+- Client-side UI
+- Backend REST APIs
+- Persistent relational databases
 
 ---
 
@@ -24,22 +30,25 @@ This project demonstrates how a modern web application integrates a client inter
 
 This project was created to practice **full-stack development using React and Spring Boot**.
 
-It demonstrates a typical CRUD architecture where a frontend application communicates with a REST API backed by a relational database.
+It currently supports CRUD operations for:
 
-### Key Learning Areas
+- 📚 Books
+- 👤 Members
 
-• Building REST APIs using Spring Boot
-• Implementing CRUD operations with Spring Data JPA
-• Connecting a React frontend to backend APIs
-• Managing relational data using MySQL
-• Structuring a multi-module Java project
+The backend exposes REST endpoints which are consumed by the React frontend.
 
-Future improvements may include:
+Interactive API documentation is also available through **Swagger/OpenAPI**.
 
-• Authentication and user roles
-• Pagination and search functionality
-• UI improvements
-• Containerized deployment using Docker
+---
+
+# 📘 Key Learning Areas
+
+• Building REST APIs using Spring Boot  
+• Implementing CRUD operations with Spring Data JPA  
+• Structuring a layered backend architecture (Controller → Service → Repository)  
+• Connecting a React frontend to backend APIs  
+• Managing relational data using MySQL  
+• Documenting APIs using Swagger/OpenAPI  
 
 ---
 
@@ -55,6 +64,7 @@ Future improvements may include:
 * Spring Boot
 * Spring Data JPA
 * REST APIs
+* Swagger / OpenAPI
 
 ## Database
 
@@ -70,24 +80,65 @@ The system provides complete CRUD functionality for managing books.
 
 Users can:
 
-• Add new books to the library catalog
-• View all books with detailed information
-• Update book details and availability status
-• Remove books from the system
+• Add new books to the library catalog  
+• View all books  
+• Update book information  
+• Delete books from the system  
+
+---
+
+## 👤 Member Management
+
+Library members can also be managed through the API.
+
+Users can:
+
+• Register new members  
+• View all members  
+• Update member information  
+• Delete members  
+
+---
+
+# 📡 API Documentation
+
+The backend includes **Swagger/OpenAPI documentation**.
+
+After starting the backend server, open:
+
+```
+
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+```
+
+or
+
+```
+
+[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+````
+
+Swagger allows you to:
+
+- View all API endpoints
+- Test requests directly from the browser
+- Inspect request and response models
 
 ---
 
 # 🏗️ Project Architecture
 
-The application is organized into three modules:
+The application is organized into **three modules**:
 
-**libraryms-app-data**
-Contains JPA entities and database persistence logic.
+### `libraryms-app-data`
+Contains **JPA entities and persistence logic**.
 
-**libraryms-app-rest**
-Spring Boot REST API that exposes endpoints for managing books.
+### `libraryms-app-rest`
+Spring Boot **REST API** exposing endpoints for books and members.
 
-**libraryms-app-web**
+### `libraryms-app-web`
 React frontend that communicates with the backend API.
 
 ---
@@ -96,17 +147,17 @@ React frontend that communicates with the backend API.
 
 ## 1️⃣ Clone the repository
 
-```
+```bash
 git clone https://github.com/kayanr/LibraryManagementSystemApp.git
-```
+````
 
 ---
 
 ## 2️⃣ Setup MySQL
 
-Create a database:
+Create the database:
 
-```
+```sql
 CREATE DATABASE libraryms_db;
 ```
 
@@ -120,7 +171,7 @@ libraryms-app-rest/src/main/resources/application.properties
 
 ## 3️⃣ Start the Backend
 
-```
+```bash
 cd libraryms-app-rest
 mvn spring-boot:run
 ```
@@ -135,7 +186,7 @@ http://localhost:8080
 
 ## 4️⃣ Start the Frontend
 
-```
+```bash
 cd libraryms-app-web
 npm install
 npm start
@@ -149,7 +200,7 @@ http://localhost:3000
 
 ---
 
-## 📷 Screenshots
+# 📷 Screenshots
 
 <p align="center">
   <img src="Screenshots/BookList.jpg" width="45%">
@@ -164,7 +215,13 @@ http://localhost:3000
 
 # 📚 Future Improvements
 
-• Add authentication and authorization
-• Implement pagination and filtering
-• Improve UI/UX
-• Deploy application to cloud infrastructure
+Planned enhancements include:
+
+• Implement book **loans and borrowing system**
+• Add **member authentication and user roles**
+• Implement **search and pagination**
+• Improve frontend **UI/UX**
+• Containerize the application using **Docker**
+• Deploy the system to **cloud infrastructure**
+
+---
