@@ -26,3 +26,25 @@ insert into books (id, title, author, rating, isbn) values (1,'Lean Software Dev
  (6,'SQL Cookbook', 'Anthony Molinaro', 3,'9780600000000');
 
 select * from books;
+
+
+CREATE TABLE members (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    membership_date DATE,
+    membership_type VARCHAR(100),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE loans (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    book_id BIGINT,
+    member_id BIGINT,
+    checkout_date DATE,
+    due_date DATE,
+    return_date DATE,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_loans_book FOREIGN KEY (book_id) REFERENCES books(id),
+    CONSTRAINT fk_loans_member FOREIGN KEY (member_id) REFERENCES members(id)
+);
