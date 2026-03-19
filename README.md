@@ -34,6 +34,7 @@ It currently supports CRUD operations for:
 
 - 📚 Books
 - 👤 Members
+- 🔖 Loans
 
 The backend exposes REST endpoints which are consumed by the React frontend.
 
@@ -43,12 +44,14 @@ Interactive API documentation is also available through **Swagger/OpenAPI**.
 
 # 📘 Key Learning Areas
 
-• Building REST APIs using Spring Boot  
-• Implementing CRUD operations with Spring Data JPA  
-• Structuring a layered backend architecture (Controller → Service → Repository)  
-• Connecting a React frontend to backend APIs  
-• Managing relational data using MySQL  
-• Documenting APIs using Swagger/OpenAPI  
+• Building REST APIs using Spring Boot
+• Implementing CRUD operations with Spring Data JPA
+• Structuring a layered backend architecture (Controller → Service → Repository)
+• Using DTOs to decouple API contracts from JPA entities
+• Connecting a React frontend to backend APIs
+• Building controlled forms with dynamic dropdowns in React
+• Managing relational data using MySQL
+• Documenting APIs using Swagger/OpenAPI
 
 ---
 
@@ -93,10 +96,23 @@ Library members can also be managed through the API.
 
 Users can:
 
-• Register new members  
-• View all members  
-• Update member information  
-• Delete members  
+• Register new members
+• View all members
+• Update member information
+• Delete members
+
+---
+
+## 🔖 Loan Management
+
+Books can be checked out to members and tracked through the system.
+
+Users can:
+
+• Create a loan by selecting a book and a member
+• View all active and past loans
+• Update loan details including return date
+• Delete a loan record
 
 ---
 
@@ -217,10 +233,14 @@ http://localhost:3000
 
 Planned enhancements include:
 
-• Implement book **loans and borrowing system**
+• Upgrade to **react-scripts v5** and **React 18** (removes Node 17+ OpenSSL workaround)
+• Replace welcome page with a **live stats dashboard**
+• Group navigation into **entity dropdowns** (Books / Members / Loans)
+• Highlight **overdue loans** in the loan list
+• Add **global error handling** via `@ControllerAdvice`
 • Add **member authentication and user roles**
 • Implement **search and pagination**
-• Improve frontend **UI/UX**
+• Upgrade to **react-router-dom v6** and **react-bootstrap v2**
 • Containerize the application using **Docker**
 • Deploy the system to **cloud infrastructure**
 

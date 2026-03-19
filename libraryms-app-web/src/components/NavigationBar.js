@@ -16,11 +16,23 @@ class NavigationBar extends Component {
           />
         </Link>
         <Nav className="mr-auto">
-          <Link to={"add"} className="nav-link">
+          <Link to={"/add"} className="nav-link">
             Add Book
           </Link>
-          <Link to={"list"} className="nav-link">
+          <Link to={"/list"} className="nav-link">
             Book Listing
+          </Link>
+          <Link to={"/loan/add"} className="nav-link">
+            Add Loan
+          </Link>
+          <Link to={"/loan/list"} className="nav-link">
+            Loan Listing
+          </Link>
+          <Link to={"/member/add"} className="nav-link">
+            Add Member
+          </Link>
+          <Link to={"/member/list"} className="nav-link">
+            Member Listing
           </Link>
         </Nav>
       </Navbar>
