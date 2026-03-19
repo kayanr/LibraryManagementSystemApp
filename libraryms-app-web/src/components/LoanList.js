@@ -78,7 +78,7 @@ export default class LoanList extends Component {
                       <td>
                         <ButtonGroup>
                           <Link
-                            to={"loan/edit/" + loan.id}
+                            to={"/loan/edit/" + loan.id}
                             className="btn btn-sm btn-outline-primary"
                           >
                             <FontAwesomeIcon icon={faEdit} />

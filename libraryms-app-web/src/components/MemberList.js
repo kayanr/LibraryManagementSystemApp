@@ -76,7 +76,7 @@ export default class MemberList extends Component {
                       <td>
                         <ButtonGroup>
                           <Link
-                            to={"member/edit/" + member.id}
+                            to={"/member/edit/" + member.id}
                             className="btn btn-sm btn-outline-primary"
                           >
                             <FontAwesomeIcon icon={faEdit} />
