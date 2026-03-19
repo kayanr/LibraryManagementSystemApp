@@ -5,24 +5,27 @@
 ![React](https://img.shields.io/badge/React-Frontend-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
 
-A comprehensive **Library Management System** built with modern web technologies.
+A full-stack Library Management System designed to manage books, members, and lending workflows through a scalable Spring Boot REST API and React frontend.
 
-This project demonstrates a **full-stack architecture** with a React frontend, a Spring Boot REST API backend, and a MySQL database.
+This application demonstrates real-world backend architecture, API design, and frontend integration using modern technologies.
 
 ---
 
 # 🚀 Overview
 
-The **Library Management System** is a full-stack web application designed to manage core library operations.
+The Library Management System enables librarians and administrators to efficiently manage:
 
-The system enables librarians and administrators to manage **books and library members** through a web interface.  
-The frontend communicates with a backend **Spring Boot REST API** that handles business logic and database interactions.
+- Book inventory
+- Library members
+- Book lending and return workflows
 
-This project demonstrates how modern web applications integrate:
+The system follows a layered backend architecture and exposes RESTful APIs consumed by a React-based user interface.
 
-- Client-side UI
-- Backend REST APIs
-- Persistent relational databases
+This project highlights how modern applications integrate:
+
+- Client-side UI (React)
+- Backend REST APIs (Spring Boot REST API)
+- Persistent relational databases (MySQL)
 
 ---
 
