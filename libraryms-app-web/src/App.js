@@ -9,6 +9,8 @@ import { Container, Row, Jumbotron, Col } from "react-bootstrap";
 import Footer from "./components/Footer";
 import Book from "./components/Book";
 import BookList from "./components/BookList";
+import Loan from "./components/Loan";
+import LoanList from "./components/LoanList";
 import Header from "./components/Header";
 import axios from "axios";
 
@@ -26,6 +28,9 @@ function App() {
               <Route path="/add" exact component={Book} />
               <Route path="/edit/:id" exact component={Book} />
               <Route path="/list" exact component={BookList} />
+              <Route path="/loan/add" exact component={Loan} />
+              <Route path="/loan/edit/:id" exact component={Loan} />
+              <Route path="/loan/list" exact component={LoanList} />
             </Switch>
           </Col>
         </Row>
