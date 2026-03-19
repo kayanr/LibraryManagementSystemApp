@@ -244,6 +244,4 @@ Planned enhancements include:
 • Containerize the application using **Docker**
 • Deploy the system to **cloud infrastructure**
 
-> See `Docs/UI_Upgrade_Plan.md` for the full phased plan.
-
 ---
