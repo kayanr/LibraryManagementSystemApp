@@ -28,6 +28,12 @@ class NavigationBar extends Component {
           <Link to={"loan/list"} className="nav-link">
             Loan Listing
           </Link>
+          <Link to={"member/add"} className="nav-link">
+            Add Member
+          </Link>
+          <Link to={"member/list"} className="nav-link">
+            Member Listing
+          </Link>
         </Nav>
       </Navbar>
     );

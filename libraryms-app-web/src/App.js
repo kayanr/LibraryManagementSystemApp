@@ -11,6 +11,8 @@ import Book from "./components/Book";
 import BookList from "./components/BookList";
 import Loan from "./components/Loan";
 import LoanList from "./components/LoanList";
+import Member from "./components/Member";
+import MemberList from "./components/MemberList";
 import Header from "./components/Header";
 import axios from "axios";
 
@@ -31,6 +33,9 @@ function App() {
               <Route path="/loan/add" exact component={Loan} />
               <Route path="/loan/edit/:id" exact component={Loan} />
               <Route path="/loan/list" exact component={LoanList} />
+              <Route path="/member/add" exact component={Member} />
+              <Route path="/member/edit/:id" exact component={Member} />
+              <Route path="/member/list" exact component={MemberList} />
             </Switch>
           </Col>
         </Row>
