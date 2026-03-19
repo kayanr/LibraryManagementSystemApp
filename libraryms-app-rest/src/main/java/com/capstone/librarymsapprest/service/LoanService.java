@@ -18,7 +18,11 @@ public class LoanService {
     }
 
     public Loan getLoanById(long id) {
-        return loanRepository.findById(id);
+        Loan loan = loanRepository.findById(id);
+        if (loan == null) {
+            throw new RuntimeException("Loan not found with id: " + id);
+        }
+        return loan;
     }
 
     public Loan createLoan(Loan loan) {
@@ -29,8 +33,7 @@ public class LoanService {
         Loan loan = loanRepository.findById(id);
 
         if (loan == null) {
-            newLoan.setId(id);
-            return loanRepository.save(newLoan);
+            throw new RuntimeException("Loan not found with id: " + id);
         }
 
         loan.setBook(newLoan.getBook());
